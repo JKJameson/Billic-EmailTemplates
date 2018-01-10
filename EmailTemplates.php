@@ -219,29 +219,6 @@ class EmailTemplates {
 			$db->q('DELETE FROM `emailtemplates` WHERE `id` = ?', urldecode($_GET['Delete']));
 			$billic->status = 'deleted';
 		}
-		/*
-		 * Send Test
-		$template_id = $db->q('SELECT `id` FROM `emailtemplates` WHERE `default` = ?', 'Service Activated');
-		$template_id = $template_id[0]['id'];
-		$billic->module('EmailTemplates');
-		$testservice = $db->q('SELECT * FROM `services` LIMIT 1');
-		$testservice = $testservice[0];
-		$testuser = $db->q('SELECT * FROM `users` LIMIT 1');
-		$testuser = $testuser[0];
-		$return = $billic->modules['EmailTemplates']->send(array(
-			'to' => 'josh@servebyte.com',
-			'template_id' => $template_id,
-			'vars' => array(
-				'services' => $testservice,
-				'users' => $testuser,
-			),
-		));
-		if ($return===true) {
-			echo 'Test email sent!';
-		} else {
-			echo 'Error: '.$return;
-		}
-		*/
 		$billic->set_title('Email Templates');
 		echo '<h1><i class="icon-email-envelope"></i> Email Templates</h1>';
 		$billic->show_errors();
